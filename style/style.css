@@ -1,0 +1,515 @@
+html{
+    scroll-behavior: smooth ;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+}
+
+body {
+    width: 100%;
+    background-color: #dadada;
+
+}
+.content{
+    padding-left: 250px;
+}
+
+.sidebar {
+    min-height: 100vh;
+    background-color: #010020; 
+    position: fixed;
+    left: 0;
+    top: 0; 
+    width: 250px; 
+    box-shadow: 0px 0px 5px #3b3b3bb4;
+}
+
+.sidebar .top-logo{
+    position: relative;
+    display: block;
+}
+
+.sidebar .bottom-logo {
+    position: absolute;
+    bottom: 0;
+}
+
+.logo1 {
+    height: auto;
+    width: 60%;
+    margin: 50px auto;
+    display: block;
+}
+
+.logo2 {
+    height: auto;
+    width: 30%;
+    margin: 20px auto;
+    display: block;
+}
+
+.nav-list{
+    position: relative;
+    list-style: none;
+}
+
+.nav-list li{
+    padding: 10px;
+    margin: 5px 25px;
+}
+
+
+.nav-list li a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    height: fit-content;
+}
+
+.bottom-logo .nav-list li {
+    padding: 0px;
+    margin: 5px 25px;
+}
+
+.nav-list li a i{
+    padding-right: 20px !important;
+}
+
+.nav-list .nav-item:hover {
+    background-color: #fff;
+    border-radius: 2px;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-list .nav-item:hover a {
+    color: #000833;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+}
+
+
+
+
+.separator {
+    height: 2px;
+    width: 90%;
+    margin: 20px auto;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.logos {
+
+    margin: 10px 10px;
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+
+}
+
+
+.name {
+    font-size: 20pt;
+    color: #048ab3 !important;
+    cursor: default !important;
+}
+
+.login{
+    height: 100vh;
+    width: 100%;
+    background-color: #0f2288;
+    background-image: linear-gradient(135deg, #0f2288 0%, #00066f 25%, #0e7e9a 100%);
+}
+
+.login section {
+    display: flex;
+    align-items: center;
+    align-content: stretch;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-img img{
+    width: 15em;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#login{
+    padding-top: 30vh;
+}
+
+
+
+.login form {
+    background-color: transparent;
+    border-radius: 2px;
+    padding: 30px;
+}
+
+
+.content .input-group {
+    width: 40%;
+    padding: 30px 10px;
+    margin: 0 20px;
+    display: inline-block;
+}
+
+.login .input-group {
+    padding: 30px 10px;
+    display: inline-block;
+}
+
+
+input, select{
+    display: block;
+    margin: auto;
+    height: 30px;
+    width: 20em;
+    padding-left: 5px;  
+    font-weight: 800;
+    border: 0;
+    background-color: rgba(255, 255, 255, 0.11);
+    transition: 0.3s ease-in-out;
+    border-bottom: 2px solid #00066f;
+}
+
+.login input{
+    border-bottom-color: #fff;
+}
+
+option{
+    background-color: #070049;
+    height: 20px;
+    font-size: 13pt;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #ffffff;
+}
+
+option:focus {
+    background-color: #070049;
+    color: #048ab3;
+    transition: 0.3s ease-in-out;
+
+}
+
+input:focus{
+    background-color: rgba(255, 255, 255, 1);
+    border: 0;
+    transition: 0.3s ease-in-out;
+}
+
+
+
+
+label {
+    color: rgb(0, 0, 0);
+    display: block;
+    margin: 5px 5px;
+    font-size: large;
+    font-weight: 800;
+}
+
+.login label {
+    color: #fff;
+}
+
+.btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-width: max-content;
+    height: 1.9em;
+    background-color: #0f2288;
+    background-image: linear-gradient(135deg, #0f2288 0%, #3a65f1 25%, #00098a 100%);
+    background-size: 200% 100%;
+    background-position : 100% 0;
+    font-size: large;
+    font-weight: 800;
+    color: #fff;
+    border: 0;
+    border-radius: 2px;
+    transition: 0.3s ease-in-out;
+    width: 100%;
+}
+
+.btn-red {
+    background-image: linear-gradient(135deg, #791010 0%, #ff0000 25%, #3b0909 100%);
+}
+
+.btn-orange {
+    background-image: linear-gradient(135deg, #777910 0%, #e48100 25%, #ffeb39 100%);
+}
+
+.btn:hover {
+    background-position: 0 0;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:focus {
+    color: rgb(0, 19, 70);
+}
+
+
+.section {
+    min-height: 100vh;
+    background-color: #d3d3d3;
+    color: #fff;
+
+}
+
+#controlpanel section {
+    display: block;
+    padding-top: 10vh;
+    padding-left: 3%;
+    
+}
+
+#tau section, #Transfers section {
+    display: block;
+    padding-top: 20vh;
+    padding-left: 5%;
+}
+
+#stocks section,
+#bank_prop section {
+    display: block;
+    padding-top: 10vh;
+
+}
+
+.bottom-logo .nav-list li{
+    color: rgb(155, 155, 155);
+    display: flex;
+    align-items: center;
+    font-weight: 100;
+}
+
+.bottom-logo .nav-list .selected {
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+    margin-right: 0 ;
+}
+
+.bottom-logo .nav-list li i{
+    padding-right: 10px;
+    padding-top: 2px;
+}
+
+.alert {
+    position: fixed;
+    bottom: 5vh;
+    width: 250px;
+    right: -350px;
+    height: 80px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    transition: 1s ease-in-out;
+}
+
+.alert div{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+    color: white;
+}
+.alert div i{
+    font-size: xx-large;
+    margin: 20px;
+}
+
+.red-alert{
+    background-image: linear-gradient(135deg, #791010 0%, #ff0000 25%, #3b0909 100%);
+}
+
+.green-alert{
+    background-image: linear-gradient(135deg, #0f2288 0%, #3a65f1 25%, #00098a 100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.statw {
+
+    display: inline-block;
+    padding: 30px;
+
+}
+
+.statw p {
+    font-size: 20pt;
+    margin-bottom: 20px;
+    color: #010020;
+}
+
+.statw table {
+    border: 0px;
+    border-collapse: collapse;
+    display: block;
+}
+
+.stat0 {
+    width: 30em;
+    background-color: #000000;
+    color: #dadada;
+    height: 30px;
+}
+
+.stat1 {
+    background-color: transparent;
+    color: #010020;
+}
+.stat1:nth-child(odd){
+    background-color: #010020;
+    color: #fff;
+}
+
+
+
+.statw td {
+    width: 15em;
+    padding: 5px 10px ;
+    align-self: center;
+    margin: 0px;
+    text-align: center;
+}
+
+.staticons {
+    height: 20px;
+    width: auto;
+    display: block;
+    margin: auto;
+}
+
+
+.statt {
+    display: inline-block;
+    background-color: rgb(252, 252, 252);
+    box-shadow: 12px 12px 31px #3b3b3bb4;
+    padding: 30px;
+}
+
+.statt td {
+
+    width: 25em;
+    padding: 5px 10px ;
+    align-self: center;
+    margin: 0px;
+    text-align: center;
+}
+
+.statp {
+
+    display: inline-block;
+    background-color: rgb(252, 252, 252);
+    box-shadow: 12px 12px 31px #3b3b3bb4;
+    padding: 30px;
+    font-size: 20pt;
+
+}
+
+.statp .s1 {
+    width: 25em;
+    padding: 5px 10px ;
+    margin: 0px;
+    text-align: left;
+}
+
+.statp .s2 {
+    width: 25em;
+    padding: 5px 10px;
+    margin: 0px;
+    text-align: center;
+    font-family: monospace;
+}
+
+.statt p {
+    font-size: 20pt;
+    margin-bottom: 20px;
+}
+
+.chart {
+
+    display: inline-block;
+    background-color: rgb(252, 252, 252);
+    box-shadow: 12px 12px 31px #3b3b3bb4;
+    margin: 0.9%;
+    width: 48%;
+    height: 20em;
+
+}
+
+.chartssec {
+    margin: 10px 1% 30px 1%;
+
+}
+
+.statc {
+    
+    display: inline-block;
+    background-color: rgb(252, 252, 252);
+    box-shadow: 12px 12px 31px #3b3b3bb4;
+    padding: 30px;
+}
+
+.statc td {
+    height: 30px;
+    width: 8em;
+    margin: auto;
+    padding: 2px 0;
+    text-align: center;
+    max-width: min-content;
+    font-size: medium;
+    font-weight: 500;
+}
+
+
+.statc table{
+    margin: auto 5px;
+}
+
+#addrem {
+    margin: 0 !important ;
+    padding: 0 !important ;
+    box-shadow: none;
+    width: 100% !important;
+}
+
+.loading {
+    background: url('../assets/icons/o.png') no-repeat right;
+    background-size: contain;
+}
