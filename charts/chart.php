@@ -1,7 +1,7 @@
 <?php
 
 include '../php/config.php';
-error_reporting(0); 
+error_reporting(0);
 session_start();
 
 
@@ -32,7 +32,14 @@ while ($row = $result->fetch_assoc()) {
 }
 
 $price = end($y);
-
+$delta = $price - $y[95];
+if ($delta == 0){
+    $color = "#010020";
+} elseif ($delta < 0) {
+    $color = "rgb(222, 0, 0)";
+} else {
+    $color = "rgb(0, 122, 0)";
+}
 
 ?>
 
@@ -57,7 +64,7 @@ $price = end($y);
             datasets: [{
                 label: '<?= $stock ?> :   <?= $price ?> $',
                 backgroundColor: 'rgb(6, 38, 184)',
-                borderColor: 'rgb(6, 38, 184)',
+                borderColor: '#010020',
                 data: <?= json_encode($y) ?>,
             }]
         };
@@ -84,7 +91,7 @@ $price = end($y);
                             autoSkip: true,
                             maxRotation: 0,
                             minRotation: 0,
-                            maxTicksLimit : 6
+                            maxTicksLimit: 6
                         },
 
                         grid: {
@@ -125,7 +132,7 @@ $price = end($y);
                         display: true,
                         labels: {
                             boxWidth: 0,
-                            color: 'rgb(6, 38, 184)',
+                            color: '<?= $color ?>',
                             font: {
                                 size: 30
                             }

@@ -8,13 +8,13 @@ session_start();
 <table class="statc ph2">
     <th class="stat0">Stock</th>
     <th class="stat0">Price</th>
-    <th class="stat0" style="width: 20px; background-color: #fff;"></th>
+    <th class="stat0" style="width: 20px; background-color: #dadada;"></th>
     <th class="stat0">Stock</th>
     <th class="stat0">Price</th>
-    <th class="stat0" style="width: 20px; background-color: #fff;"></th>
+    <th class="stat0" style="width: 20px; background-color: #dadada;"></th>
     <th class="stat0">Stock</th>
     <th class="stat0">Price</th>
-    <th class="stat0" style="width: 20px; background-color: #fff;"></th>
+    <th class="stat0" style="width: 20px; background-color: #dadada;"></th>
     <th class="stat0">Stock</th>
     <th class="stat0">Price</th>
 
@@ -32,7 +32,7 @@ session_start();
         <tr class="stat1">
             <td><?= $stock ?></td>
             <td><?= $val ?> $</td>
-            <td style="background-color: #fff;padding:0"></td>
+            <td style="background-color: #dadada;padding:0"></td>
 
             <?php
             $row = $result->fetch_assoc();
@@ -42,7 +42,7 @@ session_start();
 
             <td><?= $stock ?></td>
             <td><?= $val ?> $</td>
-            <td style="background-color: #fff;padding:0"></td>
+            <td style="background-color: #dadada;padding:0"></td>
 
             <?php
             $row = $result->fetch_assoc();
@@ -52,7 +52,7 @@ session_start();
 
             <td><?= $stock ?></td>
             <td><?= $val ?> $</td>
-            <td style="background-color: #fff;padding:0"></td>
+            <td style="background-color: #dadada;padding:0"></td>
 
             <?php
             $row = $result->fetch_assoc();
@@ -74,14 +74,14 @@ session_start();
 <div class="statw">
     <table>
         <th colspan="4">SELL OFFERS</th>
-        <th style="background-color: #fff;padding:0"></th>
+        <th style="background-color: #dadada;padding:0"></th>
         <th colspan="4">BUY OFFERS</th>
         <tr class=" stat0">
             <td>trader ID</td>
             <td>Stock</td>
             <td>Number</td>
             <td>Price</td>
-            <td style="background-color: #fff;padding:0"></td>
+            <td style="background-color: #dadada;padding:0"></td>
             <td>trader ID</td>
             <td>Stock</td>
             <td>Number</td>
@@ -89,7 +89,7 @@ session_start();
 
         </tr>
 
-        <tr style="background-color: rgb(252, 252, 252);">
+        <tr style="background-color:#dadada;">
             <td colspan="9"></td>
 
         </tr>
@@ -103,22 +103,32 @@ session_start();
 
         $s = $row1 = $result1->fetch_assoc();
         $b = $row2 = $result2->fetch_assoc();
+
         while ($s or $b) {
+            $ss = 'style="background-color:#dadada"';
+            if ($s) {
+                $ss = "";
+            }
+
+            $bb = 'style="background-color:#dadada"';
+            if ($b) {
+                $bb = "";
+            }
 
         ?>
 
 
             <tr class=" stat1">
 
-                <td><?= $row1['trader'] ?></td>
-                <td><?= $row1['stock'] ?></td>
-                <td><?= $row1['nbr'] ?></td>
-                <td><?= $row1['price'] ?></td>
-                <td style="background-color: #fff;padding:0"></td>
-                <td><?= $row2['trader'] ?></td>
-                <td><?= $row2['stock'] ?></td>
-                <td><?= $row2['nbr'] ?></td>
-                <td><?= $row2['price'] ?></td>
+                <td <?= $ss ?>><?= $row1['trader'] ?></td>
+                <td <?= $ss ?>><?= $row1['stock'] ?></td>
+                <td <?= $ss ?>><?= $row1['nbr'] ?></td>
+                <td <?= $ss ?>><?= $row1['price'] ?></td>
+                <td style="background-color: #dadada;padding:0"></td>
+                <td <?= $bb ?>><?= $row2['trader'] ?></td>
+                <td <?= $bb ?>><?= $row2['stock'] ?></td>
+                <td <?= $bb ?>><?= $row2['nbr'] ?></td>
+                <td <?= $bb ?>><?= $row2['price'] ?></td>
 
 
             </tr>

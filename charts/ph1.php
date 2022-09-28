@@ -12,7 +12,7 @@ session_start();
     <th class="stat0">benefits</th>
     <th class="stat0">Number</th>
     <th class="stat0">Price</th>
-    <th class="stat0" style="width: 20px; background-color: #fff;"></th>
+    <th class="stat0" style="width: 20px; background-color: #dadada;"></th>
     <th class="stat0">Stock</th>
     <th class="stat0">benefits</th>
     <th class="stat0">Number</th>
@@ -35,7 +35,7 @@ session_start();
             <td><?= $benefits ?> $</td>
             <td><?= $nbr ?></td>
             <td><?= $val ?> $</td>
-            <td style="background-color: #fff;padding:0"></td>
+            <td style="background-color: #dadada;padding:0"></td>
 
             <?php
             $row = $result->fetch_assoc();
@@ -52,5 +52,5 @@ session_start();
             <td><?= $val ?> $</td>
         </tr>
     <?php } ?>
-    
+
 </table>

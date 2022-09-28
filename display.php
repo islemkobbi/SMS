@@ -62,17 +62,29 @@ $day = $row['day'];
                     $(".ph3").load("charts/ph3.php");
                 }, 10000);
             };
-
+            if (phase == 4) {
+                $(".ph4").load("charts/ph4.php");
+            };
 
 
         });
     </script>
-    <nav>
-        <h1 style="text-align: center; font-size:xxx-large;color:#fff;"> day <?= $day  ?> &HorizontalLine; phase <?= $phase ?></h1>
+
+    <nav class="bottom-bar">
+        <div style="font-size:xx-large;color:#fff;padding-left: 20px"> day <?= $day  ?> &HorizontalLine; <?php if ($phase == 4 ){echo "Ranking"; }else { echo "Phase " . $phase; }?> </div>
+        <div class="logos">
+            <img src="assets/caplogo.png" alt="cap_logo">
+            <div class="separator"></div>
+            <img src="assets/SMS-blanc.png" alt="sms logo">
+        </div>
     </nav>
-    <section class="ph3 chartssec"></section>
-    <section class="ph1"></section>
-    <section class="ph2"></section>
+
+    <div class="disp_contaner">
+        <section class="ph3 chartssec"></section>
+        <section class="ph1"></section>
+        <section class="ph2"></section>
+        <section class="ph4"></section>
+    </div>
 </body>
 
 
