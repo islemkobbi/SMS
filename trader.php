@@ -57,7 +57,7 @@ $_SESSION['stocks'] = $stocks;
 
     <?php
 
-    if ($_SESSION["a"]) {
+    if ($_SESSION["t"]) {
 
     ?>
         <!-- login ----------------------------------------------------------------------------- -->
@@ -172,7 +172,7 @@ $_SESSION['stocks'] = $stocks;
                     </div>
                     <div class="input-group">
                         <button class="btn" onclick="show_prop()">Show</button>
-                        <button class="btn btn-red" onclick="hide_prop()" style="margin-top: 5px;">H5de</button>
+                        <button class="btn btn-red" onclick="hide_prop()" style="margin-top: 5px;">Hide</button>
                         <button class="btn btn-orange" onclick="sell_npp()" style="margin-top: 5px;">Sell Newspaper</button>
                     </div>
 
