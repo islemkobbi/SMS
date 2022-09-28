@@ -519,6 +519,37 @@ if ($_SESSION['rphase'] != $phase) {
                         </table>
                     </div>
                 </section>
+
+                <section>
+                    <div class="statw">
+                        <table>
+                            <tr class=" stat0">
+                                <td>Bank id</td>
+                                <?php for($i=1;$i<=max($day,3);$i++){
+                                    echo "<td> intrest rate day " . $i . "</td>";
+                                }?>
+                            </tr>
+
+                            <?php
+                                $sql = "SELECT * FROM banks";
+                                $result = mysqli_query($conn, $sql);
+                                while($row = $result->fetch_assoc()){
+                            ?>
+
+                                    <tr class="stat1">
+                                        <td><?= $row['id'] ?></td>
+                                        <?php for($i=1;$i<= max($day, 3);$i++){
+                                            $tau = "tau".$i;
+                                            echo "<td>" . $row[$tau] . "</td>";
+                                        }?>
+                                    </tr>
+
+                            <?php }?>
+
+
+                        </table>
+                    </div>
+                </section>
             </div>
             <!-- end Bancks ------------------------------------------------------------->
             <!-- Traders ------------------------------------------------------------->

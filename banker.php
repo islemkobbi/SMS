@@ -559,8 +559,37 @@ while ($row = $result->fetch_assoc()) {
                             } ?>
                         </table>
 
+                    
+                            <table style="margin-top: 20px;">
+                                <tr class=" stat0" >
+                                    <?php for ($i = 1; $i <= max($day, 4); $i++) {
+                                        echo "<td> intrest rate day " . $i . "</td>";
+                                    } ?>
+                                </tr>
+
+                                <?php
+                                $sql = "SELECT * FROM banks WHERE id = $id";
+                                $result = mysqli_query($conn, $sql);
+                                $row = mysqli_fetch_assoc($result);
+                                ?>
+
+                                    <tr class="stat1" >
+                                        <?php for ($i = 1; $i <= max($day, 4); $i++) {
+                                            $tau = "tau" . $i;
+                                            echo "<td>" . $row[$tau] . "</td>";
+                                        } ?>
+                                    </tr>
+
+    
+
+
+                            </table>
+                        
+
+
 
                     </div>
+
 
                     <div class="statw">
 

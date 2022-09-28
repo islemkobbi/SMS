@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($conn, $sql);
         
         if (!$result) {
-            $sql = "ALTER TABLE banks ADD $tau FLOAT NOT NULL ;";
+            $sql = "ALTER TABLE banks ADD $tau FLOAT NOT NULL DEFAULT 0 ;";
             $result = mysqli_query($conn, $sql);
         }
         

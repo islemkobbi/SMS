@@ -18,7 +18,10 @@ CREATE TABLE banks (
     _password varchar(255),
     op_done int DEFAULT 0,
     trd_done int DEFAULT 0,
-    tau1 float ,
+    tau1 float DEFAULT 0,
+    tau2 float DEFAULT 0,
+    tau3 float DEFAULT 0,
+
     
     PRIMARY KEY (id)
 );

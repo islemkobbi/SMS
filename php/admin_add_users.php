@@ -21,8 +21,10 @@ if (isset($_POST['usubmit'])) {
 
     $money = $trader_cap;
     if ($id > 3000) {
+
         $sql = "INSERT INTO banks (id, _password) VALUES ($id, '$pw')";
         $result = mysqli_query($conn, $sql);
+
         $money = $bank_cap;
     }
 
