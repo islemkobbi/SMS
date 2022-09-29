@@ -69,22 +69,34 @@ $day = $row['day'];
 
         });
     </script>
-
-    <nav class="bottom-bar">
-        <div style="font-size:xx-large;color:#fff;padding-left: 20px"> day <?= $day  ?> &HorizontalLine; <?php if ($phase == 4 ){echo "Ranking"; }else { echo "Phase " . $phase; }?> </div>
-        <div class="logos">
-            <img src="assets/caplogo.png" alt="cap_logo">
-            <div class="separator"></div>
-            <img src="assets/SMS-blanc.png" alt="sms logo">
+    <?php if ($phase == 0) { ?>
+        <div class="bgvideo">
+            <video c autoplay muted loop>
+                <source src="assets/bgvideo.mp4" type="video/mp4">
+            </video>
         </div>
-    </nav>
+    <?php } else { ?>
+        <nav class="bottom-bar">
+            <div style="font-size:xx-large;color:#fff;padding-left: 20px"> day <?= $day  ?> &HorizontalLine; <?php if ($phase == 4) {
+                                                                                                                    echo "Ranking";
+                                                                                                                } else {
+                                                                                                                    echo "Phase " . $phase;
+                                                                                                                } ?> </div>
+            <div class="logos">
+                <img src="assets/caplogo.png" alt="cap_logo">
+                <div class="separator"></div>
+                <img src="assets/SMS-blanc.png" alt="sms logo">
+            </div>
+        </nav>
 
-    <div class="disp_contaner">
-        <section class="ph3 chartssec"></section>
-        <section class="ph1"></section>
-        <section class="ph2"></section>
-        <section class="ph4"></section>
-    </div>
+        <div class="disp_contaner">
+            <section class="ph3 chartssec"></section>
+            <section class="ph1"></section>
+            <section class="ph2"></section>
+            <section class="ph4"></section>
+        </div>
+
+    <?php } ?>
 </body>
 
 

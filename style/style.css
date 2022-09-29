@@ -338,7 +338,25 @@ label {
 
 
 
+.bgvideo{
+    height: 100vh;
+    min-width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    overflow: hidden;
+    
+}
 
+.bgvideo video {
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+}
 
 
 
@@ -418,8 +436,8 @@ label {
 .chart {
 
     display: inline-block;
-    background-color: transparent;
-    box-shadow: 5px 5px 11px #3b3b3bb4;
+    background-color: #010020;
+    /*box-shadow: 5px 5px 11px #3b3b3bb4;*/
     margin: 0.9%;
     width: 48%;
     height: 20em;

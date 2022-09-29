@@ -33,8 +33,8 @@ while ($row = $result->fetch_assoc()) {
 
 $price = end($y);
 $delta = $price - $y[95];
-if ($delta == 0){
-    $color = "#010020";
+if ($delta == 0) {
+    $color = "#fff";
 } elseif ($delta < 0) {
     $color = "rgb(222, 0, 0)";
 } else {
@@ -57,15 +57,20 @@ if ($delta == 0){
         <canvas id="<?= $stock ?>"></canvas>
     </div>
     <script>
+        const gradientbg = document.getElementById('<?= $stock ?>').getContext('2d').createLinearGradient(0, 0, 0, 360);
+        gradientbg.addColorStop(0, 'rgba(255, 255, 255, 0.5)');
+        gradientbg.addColorStop(1, 'transparent');
         var labels = <?= json_encode($x) ?>;
 
         var data = {
             labels: labels,
             datasets: [{
                 label: '<?= $stock ?> :   <?= $price ?> $',
-                backgroundColor: 'rgb(6, 38, 184)',
-                borderColor: '#010020',
+                backgroundColor: gradientbg,
+                borderColor: 'rgba(255,255,255,1)',
                 data: <?= json_encode($y) ?>,
+                tension: 0.1,
+                fill: true
             }]
         };
 
