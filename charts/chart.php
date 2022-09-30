@@ -32,13 +32,13 @@ while ($row = $result->fetch_assoc()) {
 }
 
 $price = round(end($y),4);
-$delta = $price - $y[95];
-if ($delta == 0) {
-    $color = "#fff";
-} elseif ($delta < 0) {
-    $color = "rgb(222, 0, 0)";
+$delta = $price - $y[max(count($y)-5,0)];
+if ($delta < 0) {
+    $color = "rgb(255, 0, 0)";
+} elseif ($delta > 0) {
+    $color = "rgb(0, 255, 0)";
 } else {
-    $color = "rgb(0, 122, 0)";
+    $color = "#fff";
 }
 
 ?>

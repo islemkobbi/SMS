@@ -201,4 +201,5 @@ if (isset($_POST['ph2_submit'])) {
 
 if ($_SESSION['phase'] > 2){
     include 'fixing.php';
-}
+    include 'fixing.php';
+}0
