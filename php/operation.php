@@ -68,7 +68,7 @@ if (isset($_POST['ph1_submit'])){
         $result = mysqli_query($conn, $sql);
         echo $sql . "<br>";
 
-        $win = ($nbr * $fixed_price) * (0.01 * $tau);
+        $win = (float) ($nbr * $fixed_price) * (0.01 * $tau);
         $sql = "UPDATE properties SET money = money + $win WHERE id = $bank";
         $result = mysqli_query($conn, $sql);
         echo $sql . "<br>";
@@ -89,7 +89,7 @@ if (isset($_POST['ph1_submit'])){
         VALUES ('$ttime', $trader, '$SB', $bank, $nbr, '$stock', $price, $fixed_price, $done)";
         $result = mysqli_query($conn, $sql);
         echo $sql . "<br>";
-
+        $_SESSION['of'] = 0;
 
     } else {
         echo "operation failed";

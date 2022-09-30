@@ -169,6 +169,7 @@ while ($row = $result->fetch_assoc()) {
 
 
     <?php if ($_SESSION['b']) { ?>
+        <!-- login -------------------------------------------->
         <div class="login">
             <section id="login">
                 <div class="login-img">
@@ -189,8 +190,10 @@ while ($row = $result->fetch_assoc()) {
                 </form>
             </section>
         </div>
-    <?php } else {
-    ?> <div class="sidebar">
+        <!-- end login -------------------------------------------->
+    <?php } else { ?>
+        <!-- sidebar -------------------------------------------->
+        <div class="sidebar">
             <div class="top-logo">
                 <img class="logo1" src="assets/SMS-blanc.png" alt="SMS logo">
             </div>
@@ -294,10 +297,12 @@ while ($row = $result->fetch_assoc()) {
                     <img class="logo2" src="assets/caplogo.png" alt="CAP logo">
             </div>
         </div>
+        <!--end sidebar -------------------------------------------->
+        <!--content -------------------------------------------->
         <div class="content">
             <?php
             if ($_SESSION['phase'] == 0 and $_SESSION['day'] > 0) { ?>
-
+                <!--intrest rate -------------------------------------------->
                 <div class="section" id="tau">
                     <section>
                         <form action="php/set_gain.php" method="POST">
@@ -317,79 +322,85 @@ while ($row = $result->fetch_assoc()) {
                         </form>
                     </section>
                 </div>
-
+                <!--end intrest rate -------------------------------------------->
 
             <?php } ?>
+            <?php if ($_SESSION['phase'] > 0 and $_SESSION['phase'] < 4) { ?>
+                <!--transfers -------------------------------------------->
+                <div class="section" id="Transfers">
 
-            <div class="section" id="Transfers">
-
-                <?php if ($_SESSION['phase'] == 1) { ?>
-                    <section>
-                        <!-- ------------------------------- -->
-                        <form action="php/operation.php" method="POST">
-                            <div class="input-group">
-                                <label>Trader ID</label>
-                                <input type="text" placeholder="ex: 1023" name="trader" required>
-                            </div>
-                            <div class="input-group">
-                                <label>stock</label>
-                                <select name="stock" placeholder="select stock" onchange="getprice(this)">
-                                    <option selected>--</option>
-                                    <?php foreach ($stocks as $stock) { ?>
-                                        <option value="<?= $stock ?>"><?= $stock ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <label>quantity</label>
-                                <input type="text" placeholder="ex: 20" name="nbr" required>
-                            </div>
-                            <div class="input-group">
-                                <button name="ph1_submit" class="btn">submit</button>
-                            </div>
-                        </form>
-                    </section>
-                <?php }
-                if ($_SESSION['phase'] > 1 and $_SESSION['phase'] < 4) { ?>
-                    <section>
-                        <form action="php/operation.php" method="POST">
-                            <div class="input-group">
-                                <label>Trader ID</label>
-                                <input type="text" placeholder="ex: 1023" name="trader" required>
-                            </div>
-                            <div class="input-group">
-                                <label>Seel or Buy</label>
-                                <select name="SB">
-                                    <option selected>--</option>
-                                    <option value="S">SELL</option>
-                                    <option value="B">BUY</option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <label>Stock</label>
-                                <select name="stock" onchange="getprice(this)">
-                                    <option selected>--</option>
-                                    <?php foreach ($stocks as $stock) { ?>
-                                        <option value="<?= $stock ?>"><?= $stock ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <label>Quantity</label>
-                                <input type="text" placeholder="ex: 1023" name="nbr" required>
-                            </div>
-                            <div class="input-group">
-                                <label>Price</label>
-                                <input id="price" type="text" placeholder="--" name="value" required>
-                            </div>
-                            <div class="input-group">
-                                <button name="ph2_submit" class="btn">Submit</button>
-                            </div>
-                        </form>
-                    </section>
-                <?php }  ?>
-
-            </div>
+                    <?php if ($_SESSION['phase'] == 1) { ?>
+                        <!-- phase 1 ------------------------------- -->
+                        <section>
+                            <form action="php/operation.php" method="POST">
+                                <div class="input-group">
+                                    <label>Trader ID</label>
+                                    <input type="text" placeholder="ex: 1023" name="trader" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>stock</label>
+                                    <select name="stock" placeholder="select stock" onchange="getprice(this)">
+                                        <option selected>--</option>
+                                        <?php foreach ($stocks as $stock) { ?>
+                                            <option value="<?= $stock ?>"><?= $stock ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label>quantity</label>
+                                    <input type="text" placeholder="ex: 20" name="nbr" required>
+                                </div>
+                                <div class="input-group">
+                                    <button name="ph1_submit" class="btn">submit</button>
+                                </div>
+                            </form>
+                        </section>
+                        <!-- end phase 1 ------------------------------- -->
+                    <?php }
+                    if ($_SESSION['phase'] > 1 and $_SESSION['phase'] < 4) { ?>
+                        <!-- phase 2,3 ------------------------------- -->
+                        <section>
+                            <form action="php/operation.php" method="POST">
+                                <div class="input-group">
+                                    <label>Trader ID</label>
+                                    <input type="text" placeholder="ex: 1023" name="trader" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Seel or Buy</label>
+                                    <select name="SB">
+                                        <option selected>--</option>
+                                        <option value="S">SELL</option>
+                                        <option value="B">BUY</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label>Stock</label>
+                                    <select name="stock" onchange="getprice(this)">
+                                        <option selected>--</option>
+                                        <?php foreach ($stocks as $stock) { ?>
+                                            <option value="<?= $stock ?>"><?= $stock ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label>Quantity</label>
+                                    <input type="text" placeholder="ex: 1023" name="nbr" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Price</label>
+                                    <input id="price" type="text" placeholder="--" name="value" required>
+                                </div>
+                                <div class="input-group">
+                                    <button name="ph2_submit" class="btn">Submit</button>
+                                </div>
+                            </form>
+                        </section>
+                        <!--end  phase 2,3 ------------------------------- -->
+                    <?php }  ?>
+                </div>
+                <!--end transfers ------------------------------- -->
+            <?php } ?>
+            <!--op hist ------------------------------- -->
             <div class="section" id="op_his">
                 <section id="statbank">
                     <div class="statw">
@@ -450,7 +461,8 @@ while ($row = $result->fetch_assoc()) {
                     </div>
                 </section>
             </div>
-
+            <!-- end op hist ------------------------------- -->
+            <!--stocks ------------------------------- -->
             <div class="section" id="stocks">
                 <section>
                     <div class="statw">
@@ -505,6 +517,8 @@ while ($row = $result->fetch_assoc()) {
                     </div>
                 </section>
             </div>
+            <!-- end stocks ------------------------------- -->
+            <!-- banck prop ------------------------------- -->
 
             <div class="section" id="bank_prop">
                 <section>
@@ -526,7 +540,7 @@ while ($row = $result->fetch_assoc()) {
                                     Allowed trades : <b> <?= $trades_all ?></b>
                                 </td>
                                 <td style="font-size: large; text-align: right; color: #000;">
-                                    Money : <b> <?= $row['money'] ?> </b> $
+                                    Money : <b> <?= round($row['money'],4) ?> </b> $
                                 </td>
                             </tr>
                         </table>
@@ -559,32 +573,32 @@ while ($row = $result->fetch_assoc()) {
                             } ?>
                         </table>
 
-                    
-                            <table style="margin-top: 20px;">
-                                <tr class=" stat0" >
-                                    <?php for ($i = 1; $i <= max($day, 4); $i++) {
-                                        echo "<td> intrest rate day " . $i . "</td>";
-                                    } ?>
-                                </tr>
 
-                                <?php
-                                $sql = "SELECT * FROM banks WHERE id = $id";
-                                $result = mysqli_query($conn, $sql);
-                                $row = mysqli_fetch_assoc($result);
-                                ?>
+                        <table style="margin-top: 20px;">
+                            <tr class=" stat0">
+                                <?php for ($i = 1; $i <= max($day, 4); $i++) {
+                                    echo "<td> intrest rate day " . $i . "</td>";
+                                } ?>
+                            </tr>
 
-                                    <tr class="stat1" >
-                                        <?php for ($i = 1; $i <= max($day, 4); $i++) {
-                                            $tau = "tau" . $i;
-                                            echo "<td>" . $row[$tau] . "</td>";
-                                        } ?>
-                                    </tr>
+                            <?php
+                            $sql = "SELECT * FROM banks WHERE id = $id";
+                            $result = mysqli_query($conn, $sql);
+                            $row = mysqli_fetch_assoc($result);
+                            ?>
 
-    
+                            <tr class="stat1">
+                                <?php for ($i = 1; $i <= max($day, 4); $i++) {
+                                    $tau = "tau" . $i;
+                                    echo "<td>" . $row[$tau] . "</td>";
+                                } ?>
+                            </tr>
 
 
-                            </table>
-                        
+
+
+                        </table>
+
 
 
 
@@ -649,9 +663,11 @@ while ($row = $result->fetch_assoc()) {
                     </div>
                 </section>
             </div>
+            <!--end banck prop ------------------------------- -->
         <?php } ?>
 
         </div>
+        <!-- end content ------------------------------- -->
         <script src="js/fa/all.js"></script>
 
 </body>

@@ -36,7 +36,7 @@ if ($nbr > 0) {
                     ID : <b> <?= $id ?></b>
                 </td>
                 <td style="font-size: large; text-align: right; color: #000;">
-                    Money : <b> <?= $row['money'] ?> </b> $
+                    Money : <b> <?= round($row['money'],4) ?> </b> $
                 </td>
             </tr>
         </table>

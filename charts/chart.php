@@ -31,7 +31,7 @@ while ($row = $result->fetch_assoc()) {
     array_unshift($y, $row[$stock]);
 }
 
-$price = end($y);
+$price = round(end($y),4);
 $delta = $price - $y[95];
 if ($delta == 0) {
     $color = "#fff";

@@ -8,7 +8,7 @@ CREATE TABLE users (
 
 CREATE TABLE properties (
     id int(11) NOT NULL,  
-    money float ,  
+    money float(30),  
 
     PRIMARY KEY (id)
 );
@@ -34,8 +34,8 @@ CREATE TABLE op_history (
     bank int(11),
     stock varchar(255),
     nbr int(11),
-    price float,
-    fixed_price float,
+    price float(30),
+    fixed_price float(30),
     done int(11),
 
     PRIMARY KEY (op_nbr)
@@ -53,15 +53,15 @@ CREATE TABLE stocks (
     stock varchar(255) NOT NULL,
     nbr int(11) DEFAULT 0,
     benefits float DEFAULT 0,
-    value float DEFAULT 0,
+    value float(30) DEFAULT 0,
     rate float DEFAULT 0
 );
 
 CREATE TABLE _admin (
     phase int DEFAULT 0,
     day int DEFAULT 0,
-    trader_cap float DEFAULT 10000,
-    bank_cap float DEFAULT 300000,
+    trader_cap float(30) DEFAULT 10000,
+    bank_cap float(30) DEFAULT 300000,
     newspaper_price float DEFAULT 10,
     cnr_price float DEFAULT 10,
     ref_rate int DEFAULT 60000
