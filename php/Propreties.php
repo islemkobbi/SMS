@@ -104,7 +104,7 @@ if ($nbr > 0) {
                 <td>Stock</td>
                 <td>S/B</td>
                 <td>Number</td>
-                <td>Price</td>
+                <td>Price ($)</td>
                 <td>State</td>
             </tr>
 
