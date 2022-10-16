@@ -59,12 +59,13 @@ while ($row1 = $result1->fetch_assoc()) {
     
     }
     print_r($prices);
-    echo "<br>";
+    echo "<br> --------------------------------------------------------------";
     print_r($na);
     echo "<br>";
 
     $max = max($na);
     echo $max . "-------- <br>";
+    
     if ($max > 0) {
 
         $max_index = array_search($max, $na);

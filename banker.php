@@ -462,18 +462,19 @@ while ($row = $result->fetch_assoc()) {
                 </section>
             </div>
             <!-- end op hist ------------------------------- -->
+
             <!--stocks ------------------------------- -->
             <div class="section" id="stocks">
                 <section>
                     <div class="statw">
                         <table>
                             <th class="stat0">Stock</th>
-                            <th class="stat0">benefits</th>
+                            <th class="stat0">Dividend</th>
                             <th class="stat0">Number</th>
                             <th class="stat0">Price</th>
                             <th class="stat0" style="width: 20px; background-color: transparent;"></th>
                             <th class="stat0">Stock</th>
-                            <th class="stat0">benefits</th>
+                            <th class="stat0">Dividend</th>
                             <th class="stat0">Number</th>
                             <th class="stat0">Price</th>
 
@@ -540,7 +541,7 @@ while ($row = $result->fetch_assoc()) {
                                     Allowed trades : <b> <?= $trades_all ?></b>
                                 </td>
                                 <td style="font-size: large; text-align: right; color: #000;">
-                                    Money : <b> <?= round($row['money'],4) ?> </b> $
+                                    Money : <b> <?= round($row['money'], 4) ?> </b> $
                                 </td>
                             </tr>
                         </table>

@@ -228,10 +228,10 @@ if ($_SESSION['rphase'] != $phase) {
                         <input type="text" placeholder="<?= $ref_rate ?>" onblur="change_ref(this)">
                     </div>
 
-                    <div class="input-group" id="f">
+                    <!-- <div class="input-group">
                         <button class="btn btn-orange" onclick="fix_price()">fixe price</button>
                         <button class="btn btn-red" style="margin-top: 3px;" onclick="end_day()">end day</button>
-                    </div>
+                    </div> -->
 
                     <div class="input-group">
                         <label>Trader's capital </label>
@@ -253,9 +253,48 @@ if ($_SESSION['rphase'] != $phase) {
                         <input type="text" placeholder="<?= $cnr_price ?>" onblur="change_cnr(this)">
                     </div>
 
+                    <div class="input-group">
+                        <button class="btn btn" style="width:30px; display:inline;" onclick="clear_history()">clear history</button>
+                        <button class="btn btn-red" style="margin-top: 3px; display:inline; width:30px" onclick="clear_all()">clear all</button>
+                    </div>
+
+
+
                 </section>
             </div>
             <script>
+                function clear_history() {
+                    if (confirm("Clear all history ? \n this will delete all transaction history and reset properties")) {
+                        $.ajax({
+                            url: 'php/clear_history.php',
+                            success: function(php_result) {
+                                if (php_result == 1) {
+                                    location.reload()
+                                } else {
+                                    alert("error")
+                                }
+                            }
+                        })
+
+                    }
+                }
+
+                function clear_all() {
+                    if (confirm("Clear all? \n this will delete everything (stocks, users ..).")) {
+                        $.ajax({
+                            url: 'php/clear_all.php',
+                            success: function(php_result) {
+                                if (php_result == 1) {
+                                    location.reload()
+                                } else {
+                                    alert("error")
+                                }
+                            }
+                        })
+                    }
+
+                }
+
                 function change_phase(element) {
                     var phase = element.value
                     $.ajax({
@@ -268,6 +307,18 @@ if ($_SESSION['rphase'] != $phase) {
                             console.log(php_result);
                         }
                     })
+                    if (phase == 3) {
+                        $.ajax({
+                            url: 'php/end_ph2.php'
+                        })
+                    }
+                    if (phase == 4) {
+                        $.ajax({
+                            url: 'php/end_day.php'
+                        })
+                    }
+
+
                     location.reload();
 
                 }
@@ -430,7 +481,7 @@ if ($_SESSION['rphase'] != $phase) {
                             </tr>
 
                             <th class="stat0">Stock</th>
-                            <th class="stat0">benefits</th>
+                            <th class="stat0">Dividend</th>
                             <th class="stat0">Number</th>
                             <th class="stat0">Price</th>
                             <th class="stat0">var rate (%)</th>

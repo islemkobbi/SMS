@@ -5,7 +5,6 @@ error_reporting(0);
 session_start();
 
 if (isset($_POST['id'])) {
-    sleep(1);
     $para = $_POST['para'];
     $value = $_POST['value'];
     $id = $_POST['id'];

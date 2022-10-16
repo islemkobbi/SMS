@@ -9,12 +9,12 @@ session_start();
 
 <table class="statc">
     <th class="stat0">Stock</th>
-    <th class="stat0">benefits</th>
+    <th class="stat0">Dividend</th>
     <th class="stat0">Number</th>
     <th class="stat0">Price</th>
     <th class="stat0" style="width: 20px; background-color: #dadada;"></th>
     <th class="stat0">Stock</th>
-    <th class="stat0">benefits</th>
+    <th class="stat0">Dividend</th>
     <th class="stat0">Number</th>
     <th class="stat0">Price</th>
 
