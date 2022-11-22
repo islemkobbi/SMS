@@ -366,7 +366,7 @@ while ($row = $result->fetch_assoc()) {
                                     <input type="text" placeholder="ex: 1023" name="trader" required>
                                 </div>
                                 <div class="input-group">
-                                    <label>Seel or Buy</label>
+                                    <label>Sell or Buy</label>
                                     <select name="SB">
                                         <option selected>--</option>
                                         <option value="S">SELL</option>

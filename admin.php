@@ -35,6 +35,7 @@ $bank_cap = $row['bank_cap'];
 $newspaper_price = $row['newspaper_price'];
 $cnr_price = $row['cnr_price'];
 $ref_rate = $row['ref_rate'];
+$break_news = $row['breaking'];
 
 
 $stocks = array();
@@ -80,10 +81,13 @@ if (!isset($_SESSION['rphase'])) {
     $_SESSION['rphase'] = $phase;
 }
 
+
 if ($_SESSION['rphase'] != $phase) {
     $_SESSION['count'] = 0;
     $_SESSION['rphase'] = $phase;
 }
+
+
 
 ?>
 
@@ -249,20 +253,72 @@ if ($_SESSION['rphase'] != $phase) {
                     </div>
 
                     <div class="input-group">
-                        <label> Credit note request price </span></label>
+                        <label> Credit note request price </label>
                         <input type="text" placeholder="<?= $cnr_price ?>" onblur="change_cnr(this)">
                     </div>
 
                     <div class="input-group">
-                        <button class="btn btn" style="width:30px; display:inline;" onclick="clear_history()">clear history</button>
-                        <button class="btn btn-red" style="margin-top: 3px; display:inline; width:30px" onclick="clear_all()">clear all</button>
+                        <button class="btn btn" style="width:100%; display:inline;" onclick="clear_history()">clear history</button>
+                        <button class="btn btn-red" style="margin-top: 3px; display:inline; width:100%;" onclick="clear_all()">clear all</button>
                     </div>
+
+                    <form action="php/upload.php" method="POST" enctype="multipart/form-data">
+                        <div class="input-group">
+                            <label>News image (only .png)</label>
+                            <input style="color: black;" type="file" name="image" accept="image/PNG" />
+                        </div>
+                        <div class="input-group">
+                            <button class="btn btn" style="width:100%; display:inline;" type="submit">Show <span id="news_time"></span></button>
+                        </div>
+                    </form>
 
 
 
                 </section>
             </div>
             <script>
+                if (<?= $break_news ?> == 1) {
+
+                    var show = 30;
+                    console.log(show);
+
+                    function cd() {
+                        if (show > 0) {
+                            show = show - 1;
+                            document.getElementById("news_time").innerHTML = show + " s";
+                            console.log(show);
+                            setTimeout(cd, 1000);
+                        } else {
+                            if (show == 0) {
+                                document.getElementById("news_time").innerHTML = "";
+                                $.ajax({
+                                    url: 'php/breaking.php',
+                                    type: 'POST',
+                                    data: {
+                                        breaking: 0
+                                    },
+                                    success: function(php_result) {
+                                        console.log(php_result);
+                                    }
+                                });
+
+                            };
+                        }
+                    }
+
+                    cd();
+
+
+
+
+
+
+                }
+
+
+
+
+
                 function clear_history() {
                     if (confirm("Clear all history ? \n this will delete all transaction history and reset properties")) {
                         $.ajax({

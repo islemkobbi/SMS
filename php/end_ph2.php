@@ -26,8 +26,8 @@ while ($row = $result1->fetch_assoc()) {
     echo " <br> -- 2";
 
 
-    $sql = "UPDATE op_history SET done = -1 WHERE op_nbr = $op_nbr ";
-    $result = mysqli_query($conn, $sql);
+    $sql22 = "UPDATE op_history SET done = -1 WHERE op_nbr = $op_nbr2 ";
+    $result22 = mysqli_query($conn, $sql22);
 
     if (
         $sb == 'B'

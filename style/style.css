@@ -1,11 +1,13 @@
 html{
     scroll-behavior: smooth ;
+    overflow: hidden;
 }
 
 * {
     margin: 0;
     padding: 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    
 }
 
 body {
@@ -40,7 +42,7 @@ body {
 .logo1 {
     height: auto;
     width: 60%;
-    margin: 50px auto;
+    margin: 30px auto;
     display: block;
 }
 
@@ -260,15 +262,15 @@ label {
 
 
 .section {
-    min-height: 100vh;
+    height: 100vh;
     background-color: #d3d3d3;
     color: #fff;
+    overflow-y: auto;
 
 }
 
 #controlpanel section {
     display: block;
-    padding-top: 10vh;
     padding-left: 3%;
     
 }
@@ -358,13 +360,19 @@ label {
 
 }
 
+input::-webkit-file-upload-button{
+    border: 1px solid transparent;
+    background-image: linear-gradient(135deg, #0f2288 0%, #3a65f1 25%, #00098a 100%);
+    color: wheat;
+    font-weight: 800;
+    padding: 3px 10px;
+    transition: 0.3s ease-in-out;
+}
+input::-webkit-file-upload-button:hover {
+    border: 1px solid blue;
+    color: rgba(9, 31, 129, 0.5);
 
-
-
-
-
-
-
+}
 
 
 
@@ -418,7 +426,7 @@ label {
 
 
 .statw td {
-    width: 15em;
+    width: 25em;
     padding: 5px 10px ;
     align-self: center;
     margin: 0px;
@@ -523,4 +531,92 @@ label {
 .loading {
     background: url('../assets/icons/o.png') no-repeat right;
     background-size: contain;
+}
+
+
+#breaking{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: -110vh;
+    left: 0;
+    background-image: linear-gradient(135deg, #791010 0%, #ff2626 25%, #3b0909 100%);
+    background-size: 400% 400%;
+    z-index: 10;
+    display: none;
+    animation: bgan 10s ease infinite;
+}
+@keyframes bgan {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+    
+}
+
+.text{
+    font-size: 50pt;
+    color: wheat;
+    font-weight: 600;
+    position: relative;
+    top: 8vh;
+    left: 8%;
+    animation: textanim 4s;
+}
+
+@keyframes textanim {
+    0% {
+        font-size: 50pt;
+        top: 8vh;
+        left: 30%;
+    }
+    30% {
+        font-size: 100pt;
+        top: 40vh;
+        left: 20%;
+    }
+    60% {
+        font-size: 100pt;
+        top: 40vh;
+        left: 20%;
+    }
+    100% {
+        font-size: 50pt;
+        top: 8vh;
+        left: 8%;
+    }
+
+        
+}
+
+.news{
+    position: relative;
+    margin: auto;
+    background-image: url(../assets/braking_news.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 70vh;
+    top: 12vh;
+    width: auto;
+    animation: imganim 4s;
+}
+
+@keyframes imganim {
+    0% {
+        top: 120vh;
+    }
+
+    50% {
+        top: 120vh;
+    }
+
+    100% {
+        top: 12vh;
+    }
 }

@@ -64,7 +64,8 @@ CREATE TABLE _admin (
     bank_cap float(30) DEFAULT 300000,
     newspaper_price float DEFAULT 10,
     cnr_price float DEFAULT 10,
-    ref_rate int DEFAULT 60000
+    ref_rate int DEFAULT 60000,
+    breaking int DEFAULT 0
 
 );
 INSERT INTO _admin (phase) 

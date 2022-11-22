@@ -13,7 +13,7 @@
     <object type="text/html" class="chart" data="charts/chart.php" ?> </object>
     <object type="text/html" class="chart" data="charts/chart.php" ?> </object>
 
-    <div class="statw" >
+    <div class="statw">
         <table>
             <th colspan="4">SELL OFFERS</th>
             <th style="background-color: #dadada;padding:0"></th>
@@ -37,16 +37,54 @@
             </tr>
 
             <?php
-            $sql1 = "SELECT * FROM op_history WHERE done = 0 AND SB = 'S' ORDER BY op_nbr DESC LIMIT 20";
-            $result1 = mysqli_query($conn, $sql1);
 
-            $sql2 = "SELECT * FROM op_history WHERE done = 0 AND SB = 'B' ORDER BY op_nbr DESC LIMIT 20";
-            $result2 = mysqli_query($conn, $sql2);
 
-            $s = $row1 = $result1->fetch_assoc();
-            $b = $row2 = $result2->fetch_assoc();
+            if (isset($_SESSION['bop'])) {
+                $bop = $_SESSION['bop'];
+            } else {
+                $bop = $_SESSION['bop'] = 0;
+            }
 
-            while ($s or $b) {
+            if (isset($_SESSION['sop'])) {
+                $sop = $_SESSION['sop'];
+            } else {
+                $sop = $_SESSION['sop'] = 0;
+            }
+
+
+            $sql1 = "SELECT * FROM op_history WHERE done = 0 AND SB = 'S' AND op_nbr > $sop ORDER BY op_nbr ASC ";
+            $_SESSION['result1'] = mysqli_query($conn, $sql1);
+            $nt1 = mysqli_num_rows($_SESSION['result1']);
+
+            $sql2 = "SELECT * FROM op_history WHERE done = 0 AND SB = 'B' AND op_nbr > $bop ORDER BY op_nbr ASC";
+            $_SESSION['result2'] = mysqli_query($conn, $sql2);
+            $nt2 = mysqli_num_rows($_SESSION['result2']);
+
+            if (!isset($_SESSION['nt'])) {
+                $_SESSION['nt'] = max($nt1, $nt2);
+            }
+
+
+            #echo $_SESSION['sop'] , "-" , $_SESSION['bop'] ,"------", $_SESSION['nt'],"--------";
+
+            $rnbr = 7; #######################################################################"
+
+            if ($_SESSION['nt'] > $rnbr) {
+                $_SESSION['nt'] = $_SESSION['nt'] - $rnbr;
+            } else {
+                $_SESSION['bop'] = 0;
+                $_SESSION['sop'] = 0;
+                unset($_SESSION['nt']);
+            }
+
+
+            $s = $row1 = $_SESSION['result1']->fetch_assoc();
+            $b = $row2 = $_SESSION['result2']->fetch_assoc();
+
+            $i = 0;
+
+            while (($s or $b) and $i < $rnbr) {
+                $i = $i + 1;
                 $ss = 'style="background-color:#dadada"';
                 if ($s) {
                     $ss = "";
@@ -76,8 +114,15 @@
                 </tr>
 
             <?php
-                $s = $row1 = $result1->fetch_assoc();
-                $b = $row2 = $result2->fetch_assoc();
+                if ($i == $rnbr - 1) {
+                    $s = $row1 = $_SESSION['result1']->fetch_assoc();
+                    $b = $row2 = $_SESSION['result2']->fetch_assoc();
+                    $_SESSION['sop'] = $row1['op_nbr'];
+                    $_SESSION['bop'] = $row2['op_nbr'];
+                } else {
+                    $s = $row1 = $_SESSION['result1']->fetch_assoc();
+                    $b = $row2 = $_SESSION['result2']->fetch_assoc();
+                }
             } ?>
         </table>
     </div>
