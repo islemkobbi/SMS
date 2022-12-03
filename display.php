@@ -42,7 +42,7 @@ if (!isset($_SESSION['tabdisp'])) {
     <div id="breaking">
         <div class="text">Breaking News</div>
         <div class="news"></div>
-        <audio id="audio" >
+        <audio id="audio">
             <source src="audio/notif.mp3" type="audio/mpeg">
         </audio>
     </div>
@@ -121,8 +121,16 @@ if (!isset($_SESSION['tabdisp'])) {
             console.log(b);
             if (b == 0) {
                 setInterval(function() {
-                    location.reload();
-                }, 60000);
+                    $.ajax({
+                        url: 'php/getphase.php',
+                        success: function(php_result) {
+                            console.log(php_result);
+                            if (php_result != <?= $phase ?>) {
+                                location.reload(true);
+                            }
+                        }
+                    })
+                }, 1000);
             };
 
 
@@ -130,7 +138,7 @@ if (!isset($_SESSION['tabdisp'])) {
                 $(".ph1").load("charts/ph1.php");
                 setInterval(function() {
                     $(".ph1").load("charts/ph1.php");
-                }, 5000);
+                }, 10000);
             };
 
             if (phase == 2) {

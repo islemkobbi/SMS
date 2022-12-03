@@ -142,6 +142,19 @@ while ($row = $result->fetch_assoc()) {
         </div>
     </div>
     <script>
+        setInterval(function() {
+            $.ajax({
+                url: 'php/getphase.php',
+                success: function(php_result) {
+                    console.log(php_result);
+                    if (php_result != <?= $_SESSION["phase"] ?>) {
+                        location.reload(true);
+                    }
+                }
+            })
+        }, 1000);
+
+
         function red_alert() {
             var element = document.getElementById("red-alert");
             setTimeout(function() {
