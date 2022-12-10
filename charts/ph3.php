@@ -85,12 +85,13 @@
 
             while (($s or $b) and $i < $rnbr) {
                 $i = $i + 1;
-                $ss = 'style="background-color:#dadada"';
+                $ss = 'style="display:none"';
                 if ($s) {
                     $ss = "";
                 }
 
-                $bb = 'style="background-color:#dadada"';
+                #$bb = 'style="background-color:#dadada"';
+                $bb = 'style="display:none"';
                 if ($b) {
                     $bb = "";
                 }

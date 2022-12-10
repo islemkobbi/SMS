@@ -118,12 +118,12 @@ rsort($r_trader_totals);
 
 
 
-            $ss = 'style="background-color:#dadada"';
+            $ss = 'style="display:none"';
             if ($s) {
                 $ss = "";
             }
 
-            $bb = 'style="background-color:#dadada"';
+            $bb = 'style="display:none"';
             if ($b) {
                 $bb = "";
             }
@@ -135,16 +135,16 @@ rsort($r_trader_totals);
                 <td <?= $ss ?>><?= $rt ?></td>
                 <td <?= $ss ?>><?= $traders[$i][0] ?></td>
                 <td <?= $ss ?>><?= $traders[$i][1] ?></td>
-                <td <?= $ss ?>><?= $traders[$i][2] ?></td>
-                <td <?= $ss ?>><?= $traders[$i][3] ?></td>
-                <td <?= $ss ?>><?= $traders[$i][4] ?></td>
+                <td <?= $ss ?>><?= round($traders[$i][2], 2) ?></td>
+                <td <?= $ss ?>><?= round($traders[$i][3], 2) ?></td>
+                <td <?= $ss ?>><?= round($traders[$i][4], 2) ?></td>
                 <td style="background-color: #dadada;padding:0"></td>
                 <td <?= $bb ?>><?= $rb ?></td>
                 <td <?= $bb ?>><?= $banks[$j][0] ?></td>
                 <td <?= $bb ?>><?= $banks[$j][1] ?></td>
-                <td <?= $bb ?>><?= $banks[$j][2] ?></td>
-                <td <?= $bb ?>><?= $banks[$j][3] ?></td>
-                <td <?= $bb ?>><?= $banks[$j][4] ?></td>
+                <td <?= $bb ?>><?= round($banks[$j][2], 2) ?></td>
+                <td <?= $bb ?>><?= round($banks[$j][3], 2) ?></td>
+                <td <?= $bb ?>><?= round($banks[$j][4], 2) ?></td>
 
 
             </tr>
