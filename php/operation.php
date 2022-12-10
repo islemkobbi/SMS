@@ -76,8 +76,7 @@ if (isset($_POST['ph1_submit'])){
         if ( $trader < 3000){
             $op_donne += 1;
         }else {
-            $trades_donne += 1;
-            
+            $trades_donne += 1;   
         }
 
         $sql = "UPDATE banks SET op_done = $op_donne,trd_done = $trades_donne WHERE id = $bank";

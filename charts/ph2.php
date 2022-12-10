@@ -31,7 +31,7 @@ session_start();
     ?>
         <tr class="stat1">
             <td><?= $stock ?></td>
-            <td><?= $val ?> $</td>
+            <td><?= round($val,3) ?> $</td>
             <td style="background-color: #dadada;padding:0"></td>
 
             <?php
@@ -41,7 +41,7 @@ session_start();
             ?>
 
             <td><?= $stock ?></td>
-            <td><?= $val ?> $</td>
+            <td><?= round($val, 3) ?> $</td>
             <td style="background-color: #dadada;padding:0"></td>
 
             <?php
@@ -51,7 +51,7 @@ session_start();
             ?>
 
             <td><?= $stock ?></td>
-            <td><?= $val ?> $</td>
+            <td><?= round($val, 3) ?> $</td>
             <td style="background-color: #dadada;padding:0"></td>
 
             <?php
@@ -61,7 +61,7 @@ session_start();
             ?>
 
             <td><?= $stock ?></td>
-            <td><?= $val ?> $</td>
+            <td><?= round($val, 3) ?> $</td>
 
 
         </tr>
@@ -145,12 +145,12 @@ session_start();
 
             while (($s or $b) and $i < $rnbr) {
                 $i = $i + 1;
-                $ss = 'style="display:none"';
+                $ss = 'style="background-color:#dadada; color:#dadada"';
                 if ($s) {
                     $ss = "";
                 }
                 
-                $bb = 'style="display:none"';
+                $bb = 'style="background-color:#dadada; color:#dadada"';
                 if ($b) {
                     $bb = "";
                 }
@@ -163,12 +163,12 @@ session_start();
                     <td <?= $ss ?>><?= $row1['trader'] ?></td>
                     <td <?= $ss ?>><?= $row1['stock'] ?></td>
                     <td <?= $ss ?>><?= $row1['nbr'] ?></td>
-                    <td <?= $ss ?>><?= $row1['price'] ?></td>
+                    <td <?= $ss ?>><?= round($row1['price'],3) ?></td>
                     <td style="background-color: #dadada;padding:0"></td>
                     <td <?= $bb ?>><?= $row2['trader'] ?></td>
                     <td <?= $bb ?>><?= $row2['stock'] ?></td>
                     <td <?= $bb ?>><?= $row2['nbr'] ?></td>
-                    <td <?= $bb ?>><?= $row2['price'] ?></td>
+                    <td <?= $bb ?>><?= round($row2['price'],3) ?></td>
 
 
                 </tr>

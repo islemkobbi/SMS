@@ -268,8 +268,6 @@ while ($row = $result->fetch_assoc()) {
 
 
 
-
-
             <div class="bottom-logo">
                 <ul class="nav-list">
                     <li class="selected">
@@ -465,7 +463,7 @@ while ($row = $result->fetch_assoc()) {
                                     <td><?= $row1['stock'] ?></td>
                                     <td><?= $sb ?></td>
                                     <td><?= $row1['nbr'] ?></td>
-                                    <td><?= $row1['price'] ?></td>
+                                    <td><?= round($row1['price'],2) ?></td>
                                     <td><img class="staticons" src="<?= $state ?>" alt="<?= $alt ?>"></td>
                                 </tr>
 
@@ -499,8 +497,8 @@ while ($row = $result->fetch_assoc()) {
                             while ($row = $result->fetch_assoc()) {
                                 $stock = $row['stock'];
                                 $nbr = $row['nbr'];
-                                $val = $row['value'];
-                                $benefits = $row['benefits'];
+                                $val = round($row['value'],2);
+                                $benefits = round($row['benefits'],2);
 
 
                             ?>
@@ -515,8 +513,8 @@ while ($row = $result->fetch_assoc()) {
                                     $row = $result->fetch_assoc();
                                     $stock = $row['stock'];
                                     $nbr = $row['nbr'];
-                                    $val = $row['value'];
-                                    $benefits = $row['benefits'];
+                                    $val = round($row['value'],2);
+                                    $benefits = round($row['benefits'],2);
                                     ?>
 
 
@@ -608,13 +606,7 @@ while ($row = $result->fetch_assoc()) {
                                 } ?>
                             </tr>
 
-
-
-
                         </table>
-
-
-
 
                     </div>
 

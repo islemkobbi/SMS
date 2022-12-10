@@ -364,18 +364,28 @@ if ($_SESSION['rphase'] != $phase) {
                         }
                     })
                     if (phase == 3) {
-                        $.ajax({
-                            url: 'php/end_ph2.php'
-                        })
+                        for (var i = 0; i < 5; i++) {
+                            $.ajax({
+                                url: 'php/end_ph2.php'
+                            });
+                        }
                     }
                     if (phase == 4) {
+                        
+                        for (var i = 0; i < 5; i++) {
+                            $.ajax({
+                                url: 'php/end_ph2.php'
+                            });
+                        }
+
                         $.ajax({
                             url: 'php/end_day.php'
                         })
                     }
 
-
-                    location.reload();
+                    setTimeout(function() {
+                        location.reload();
+                    }, 500);
 
                 }
 
@@ -391,7 +401,10 @@ if ($_SESSION['rphase'] != $phase) {
                             console.log(php_result);
                         }
                     })
-                    location.reload();
+                    setTimeout(function() {
+                        location.reload();
+                    }, 500);
+
                 }
 
                 function change_tcap(element) {
@@ -462,7 +475,9 @@ if ($_SESSION['rphase'] != $phase) {
                             console.log(php_result);
                         }
                     })
-                    location.reload();
+                    setTimeout(function() {
+                        location.reload();
+                    }, 500);
                 }
 
 

@@ -75,7 +75,7 @@ rsort($r_trader_totals);
 
         </tr>
 
-        <tr style="background-color:#dadada;">
+        <tr style="background-color:transparent;">
             <td colspan="11"></td>
 
         </tr>
@@ -118,12 +118,12 @@ rsort($r_trader_totals);
 
 
 
-            $ss = 'style="display:none"';
+            $ss = 'style="background-color: #dadada; color: #dadada"';
             if ($s) {
                 $ss = "";
             }
 
-            $bb = 'style="display:none"';
+            $bb = 'style="background-color: #dadada; color: #dadada"';
             if ($b) {
                 $bb = "";
             }

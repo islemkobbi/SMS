@@ -32,9 +32,9 @@ session_start();
     ?>
         <tr class="stat1">
             <td><?= $stock ?></td>
-            <td><?= $benefits ?> $</td>
+            <td><?= round($benefits,2) ?> $</td>
             <td><?= $nbr ?></td>
-            <td><?= $val ?> $</td>
+            <td><?= round($val,4) ?> $</td>
             <td style="background-color: #dadada;padding:0"></td>
 
             <?php
@@ -47,9 +47,9 @@ session_start();
 
 
             <td><?= $stock ?></td>
-            <td><?= $benefits ?> $</td>
+            <td><?= round($benefits,2) ?> $</td>
             <td><?= $nbr ?></td>
-            <td><?= $val ?> $</td>
+            <td><?= round($val,4) ?> $</td>
         </tr>
     <?php } ?>
 

@@ -85,13 +85,12 @@
 
             while (($s or $b) and $i < $rnbr) {
                 $i = $i + 1;
-                $ss = 'style="display:none"';
+                $ss = 'style="background-color:#dadada; color: #dadada"';
                 if ($s) {
                     $ss = "";
                 }
 
-                #$bb = 'style="background-color:#dadada"';
-                $bb = 'style="display:none"';
+                $bb = 'style="background-color:#dadada; color: #dadada"';
                 if ($b) {
                     $bb = "";
                 }
@@ -104,12 +103,12 @@
                     <td <?= $ss ?>><?= $row1['trader'] ?></td>
                     <td <?= $ss ?>><?= $row1['stock'] ?></td>
                     <td <?= $ss ?>><?= $row1['nbr'] ?></td>
-                    <td <?= $ss ?>><?= $row1['price'] ?></td>
+                    <td <?= $ss ?>><?= round($row1['price'],2) ?></td>
                     <td style="background-color: #dadada;padding:0"></td>
                     <td <?= $bb ?>><?= $row2['trader'] ?></td>
                     <td <?= $bb ?>><?= $row2['stock'] ?></td>
                     <td <?= $bb ?>><?= $row2['nbr'] ?></td>
-                    <td <?= $bb ?>><?= $row2['price'] ?></td>
+                    <td <?= $bb ?>><?= round($row2['price'],2) ?></td>
 
 
                 </tr>
