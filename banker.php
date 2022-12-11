@@ -176,6 +176,15 @@ while ($row = $result->fetch_assoc()) {
             }, 3000);
             console.log('enterd')
         };
+
+        if (<?= $_SESSION['phase'] ?> == 3) {
+            for (var i = 0; i < 2; i++) {
+                $.ajax({
+                    url: 'php/fixing.php'
+                });
+                console.log('122' + i);
+            }
+        }
     </script>
 
     <!-- end alerts -------------------------------------------->
@@ -463,7 +472,7 @@ while ($row = $result->fetch_assoc()) {
                                     <td><?= $row1['stock'] ?></td>
                                     <td><?= $sb ?></td>
                                     <td><?= $row1['nbr'] ?></td>
-                                    <td><?= round($row1['price'],2) ?></td>
+                                    <td><?= round($row1['price'], 2) ?></td>
                                     <td><img class="staticons" src="<?= $state ?>" alt="<?= $alt ?>"></td>
                                 </tr>
 
@@ -497,8 +506,8 @@ while ($row = $result->fetch_assoc()) {
                             while ($row = $result->fetch_assoc()) {
                                 $stock = $row['stock'];
                                 $nbr = $row['nbr'];
-                                $val = round($row['value'],2);
-                                $benefits = round($row['benefits'],2);
+                                $val = round($row['value'], 2);
+                                $benefits = round($row['benefits'], 2);
 
 
                             ?>
@@ -513,8 +522,8 @@ while ($row = $result->fetch_assoc()) {
                                     $row = $result->fetch_assoc();
                                     $stock = $row['stock'];
                                     $nbr = $row['nbr'];
-                                    $val = round($row['value'],2);
-                                    $benefits = round($row['benefits'],2);
+                                    $val = round($row['value'], 2);
+                                    $benefits = round($row['benefits'], 2);
                                     ?>
 
 

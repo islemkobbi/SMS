@@ -68,8 +68,21 @@ while ($row1 = $result1->fetch_assoc()) {
     
     if ($max > 0) {
 
-        $max_index = array_search($max, $na);
-        $fixed_price = $prices[$max_index];
+        #$max_index = array_search($max, $na);
+        #$fixed_price = $prices[$max_index];
+
+        $i = 0;
+        $max_p = [];
+        foreach($na as $n){
+            if($max == $n){
+                array_push($max_p,$prices[$i]);
+            }
+            $i = $i + 1 ;
+        }
+
+        $fixed_price = max($max_p);
+
+
         echo "---- <br>" . $fixed_price . " <br> ----- <br>";
 
         $sql4 = "UPDATE op_history SET fixed_price = $fixed_price WHERE done = 0 AND stock = '$stock' ";
@@ -110,41 +123,7 @@ while ($row = $result->fetch_assoc()) {
     $result = mysqli_query($conn, $sql);
 }
 
-echo " <br> ------------------------------------------ <br>";
 
-$sql = "SELECT * FROM op_history WHERE done = 0";
-$result = mysqli_query($conn, $sql);
-while ($row = $result->fetch_assoc()) {
-
-    $trader = $row['trader'];
-    $op_nbr = $row['op_nbr'];
-    $sb = $row['SB'];
-    $stock = $row['stock'];
-    $nbr = $row['nbr'];
-    $price = $row['price'];
-
-    $sql = "SELECT value  FROM stocks WHERE stock = '$stock'";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $s_price = $row['value'];
-
-    if ($s_price * 1.05 < $price || $s_price * 0.95 > $price) {
-
-        $sql = "UPDATE op_history SET done = -1 WHERE op_nbr = $op_nbr";
-        $result = mysqli_query($conn, $sql);
-
-        if ($sb == 'B') {
-            $m = $nbr * $price;
-            $s = 0;
-        } else {
-            $m = 0;
-            $s = $nbr;
-        }
-
-        $sql = "UPDATE properties SET $stock = $stock + $s, money = money + $m WHERE id = $trader";
-        $result = mysqli_query($conn, $sql);
-    }
-}
 
 
 
@@ -273,4 +252,38 @@ while ($rownbr != 0) {
     
 }
 
+echo " <br> ------------------------------------------ <br>";
 
+$sql = "SELECT * FROM op_history WHERE done = 0";
+$result = mysqli_query($conn, $sql);
+while ($row = $result->fetch_assoc()) {
+
+    $trader = $row['trader'];
+    $op_nbr = $row['op_nbr'];
+    $sb = $row['SB'];
+    $stock = $row['stock'];
+    $nbr = $row['nbr'];
+    $price = $row['price'];
+
+    $sql = "SELECT value  FROM stocks WHERE stock = '$stock'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $s_price = $row['value'];
+
+    if ($s_price * 1.05 < $price || $s_price * 0.95 > $price) {
+
+        $sql = "UPDATE op_history SET done = -1 WHERE op_nbr = $op_nbr";
+        $result = mysqli_query($conn, $sql);
+
+        if ($sb == 'B') {
+            $m = $nbr * $price;
+            $s = 0;
+        } else {
+            $m = 0;
+            $s = $nbr;
+        }
+
+        $sql = "UPDATE properties SET $stock = $stock + $s, money = money + $m WHERE id = $trader";
+        $result = mysqli_query($conn, $sql);
+    }
+}
