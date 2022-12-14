@@ -173,11 +173,11 @@ if ($_SESSION['rphase'] != $phase) {
                         <p>Traders</p>
                     </a>
                 </li>
-                <li class="nav-item"><a href="#Propreties">
+                <li class="nav-item"><a href="#Properties">
                         <i>
                             <div class="fa-solid fa-wallet"></div>
                         </i>
-                        <p>Propreties</p>
+                        <p>Properties</p>
                     </a>
                 </li>
                 <li class="nav-item"><a href="php/logout_admin.php">
@@ -753,8 +753,8 @@ if ($_SESSION['rphase'] != $phase) {
             </script>
 
             <!-- end Traders ------------------------------------------------------------->
-            <!-- Propreties ------------------------------------------------------------->
-            <div id="Propreties" class="section">
+            <!-- Properties ------------------------------------------------------------->
+            <div id="Properties" class="section">
                 <section>
                     <div class="input-group">
                         <label>ID </label>

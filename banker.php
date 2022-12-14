@@ -295,22 +295,22 @@ while ($row = $result->fetch_assoc()) {
                     <li class="<?php if ($_SESSION['phase'] == 2) {
                                     echo "selected";
                                 } ?>">
-                        <p>phase 2 : Secondary market</p>
                         <?php if ($_SESSION['phase'] == 2) { ?>
                             <i>
-                                <div class="fa-solid fa-arrow-left"></div>
+                                <div class="fa-solid fa-arrow-right"></div>
                             </i>
                         <?php } ?>
+                        <p>phase 2 : Secondary market</p>
                     </li>
                     <li class="<?php if ($_SESSION['phase'] == 3) {
                                     echo "selected";
                                 } ?>">
-                        <p>phase 3 : Continuous market</p>
                         <?php if ($_SESSION['phase'] == 3) { ?>
                             <i>
-                                <div class="fa-solid fa-arrow-left"></div>
+                                <div class="fa-solid fa-arrow-right"></div>
                             </i>
                         <?php } ?>
+                        <p>phase 3 : Continuous market</p>
                     </li>
 
                     <div class="separator"></div>

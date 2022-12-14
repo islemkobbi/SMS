@@ -139,11 +139,11 @@ $_SESSION['stocks'] = $stocks;
                         <p>Trader</p>
                     </a>
                 </li>
-                <li class="nav-item"><a href="#Propreties">
+                <li class="nav-item"><a href="#Properties">
                         <i>
                             <div class="fa-solid fa-wallet"></div>
                         </i>
-                        <p>Propreties</p>
+                        <p>Properties</p>
                     </a>
                 </li>
                 <li class="nav-item"><a href="php/logout_trader.php">
@@ -164,7 +164,7 @@ $_SESSION['stocks'] = $stocks;
         <!-- content ----------------------------------------------------------------------------- -->
         <div class="content">
             <!-- Propreties ------------------------------------------------------------->
-            <div id="Propreties" class="section">
+            <div id="Properties" class="section">
                 <section>
                     <div class="input-group">
                         <label>ID </label>
