@@ -1,3 +1,3 @@
 <?php
 
-header('location:banker.php');
+header('location:../banker.php');
