@@ -11,7 +11,7 @@ if (!isset($_SESSION["a"])) {
 if (isset($_POST['password'])) {
     $password = $_POST['password'];
 
-    $pw = '0000';
+    $pw = 'SmS01019001';
     $_SESSION["a"] = true;
 
     if ($password == $pw) {
@@ -371,7 +371,7 @@ if ($_SESSION['rphase'] != $phase) {
                         }
                     }
                     if (phase == 4) {
-                        
+
                         for (var i = 0; i < 5; i++) {
                             $.ajax({
                                 url: 'php/end_ph2.php'

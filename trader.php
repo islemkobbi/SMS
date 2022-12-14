@@ -11,7 +11,7 @@ if (!isset($_SESSION["t"])) {
 if (isset($_POST['password'])) {
     $password = $_POST['password'];
 
-    $pw = '000';
+    $pw = 'sMs01012001';
     $_SESSION["t"] = true;
 
     if ($password == $pw) {
