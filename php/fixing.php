@@ -119,6 +119,8 @@ while ($row = $result->fetch_assoc()) {
         $s = $nbr;
     }
 
+
+
     $sql = "UPDATE properties SET $stock = $stock + $s, money = money + $m WHERE id = $trader ";
     $result = mysqli_query($conn, $sql);
 }

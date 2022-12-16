@@ -35,6 +35,7 @@ while ($row = $result1->fetch_assoc()) {
     $sb2 = $row['SB'];
     $nbr2 = $row['nbr'];
     $price2 = $row['price'];
+    $stock = $row['stock'];
 
 
     echo " <br> -- 2";
@@ -44,16 +45,20 @@ while ($row = $result1->fetch_assoc()) {
     $result22 = mysqli_query($conn, $sql22);
 
     if (
-        $sb == 'B'
+        $sb2 == 'B'
     ) {
-        $m = $nbr * $price;
+        $m = $nbr2 * $price2;
         $s = 0;
     } else {
         $m = 0;
-        $s = $nbr;
+        $s = $nbr2;
     }
 
-    $sql = "UPDATE properties SET $stock = $stock + $s, money = money + $m WHERE id = $trader ";
+
+
+    $sql = "UPDATE properties SET $stock = $stock + $s, money = money + $m WHERE id = $trader2 ";
     $result = mysqli_query($conn, $sql);
 }
+
+
 ####################################################################

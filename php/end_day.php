@@ -19,50 +19,47 @@ while ($row = $result1->fetch_assoc()) {
     $sb2 = $row['SB'];
     $nbr2 = $row['nbr'];
     $price2 = $row['price'];
+    $stock = $row['stock'];
 
 
-        echo " <br> -- 2";
+    echo " <br> -- 2";
 
 
-        $sql = "UPDATE op_history SET done = -1 WHERE op_nbr = $op_nbr2 ";
-        $result = mysqli_query($conn, $sql);
+    $sql = "UPDATE op_history SET done = -1 WHERE op_nbr = $op_nbr2 ";
+    $result = mysqli_query($conn, $sql);
 
-        if ($sb == 'B'
-        ) {
-            $m = $nbr * $price;
-            $s = 0;
-        } else {
-            $m = 0;
-            $s = $nbr;
-        }
-
-        $sql = "UPDATE properties SET $stock = $stock + $s, money = money + $m WHERE id = $trader ";
-        $result = mysqli_query($conn, $sql);
-
-
+    if (
+        $sb2 == 'B'
+    ) {
+        $m = $nbr2 * $price2;
+        $s = 0;
+    } else {
+        $m = 0;
+        $s = $nbr2;
     }
+
+    $sql = "UPDATE properties SET $stock = $stock + $s, money = money + $m WHERE id = $trader2 ";
+    $result = mysqli_query($conn, $sql);
+}
 ####################################################################
 
 
 
 
-$sql= "SELECT stock,benefits FROM stocks";
+$sql = "SELECT stock,benefits FROM stocks";
 $result = mysqli_query($conn, $sql);
-while ($row = $result->fetch_assoc()){
+while ($row = $result->fetch_assoc()) {
 
     $stock = $row['stock'];
     $benefits = $row['benefits'];
 
     $sql2 = "SELECT id,$stock FROM properties";
     $result2 = mysqli_query($conn, $sql2);
-    
+
     while ($row2 = $result2->fetch_assoc()) {
         $win = $row2[$stock] * $benefits;
-        $id = $row2['id']; 
+        $id = $row2['id'];
         $sql3 = "UPDATE properties SET money = money + $win WHERE id = $id ";
         $result3 = mysqli_query($conn, $sql3);
-
     }
-
-
 }
