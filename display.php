@@ -156,6 +156,9 @@ if (!isset($_SESSION['tabdisp'])) {
             };
             if (phase == 4) {
                 $(".ph4").load("charts/ph4.php");
+                setInterval(function() {
+                    $(".ph4").load("charts/ph4.php");
+                }, 10000);
             };
 
 

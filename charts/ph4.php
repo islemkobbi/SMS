@@ -81,14 +81,35 @@ rsort($r_trader_totals);
         </tr>
 
         <?php
-        $ii = 0;
+        if (!isset($_SESSION['rank'])){
+            $_SESSION['rank'] = 1;
+            $_SESSION['trader_totals'] = $trader_totals;
+            $_SESSION['rt'] = 0;
+            $_SESSION['ii'] = 0;
+        }
+
+
+        if( $_SESSION['rank'] * 16  > count($trader_totals)+16){
+            $_SESSION['ii'] = 0;
+            $_SESSION['rt'] = 0;
+            $_SESSION['rank'] = 1;
+            $_SESSION['trader_totals'] = $trader_totals;
+        }
+
+        # echo $_SESSION['rt']; ##########################################
+
+        $trader_totals = $_SESSION['trader_totals'] ;
+        $ii = $_SESSION['ii'];
+        $rt = $_SESSION['rt'];
+
         $jj = 0;
-        $rt = 0;
         $rb = 0;
+
+
         do {
             $s = true;
             $b = true;
-            if ($ii < count($trader_totals)) {
+            if ( $ii < $_SESSION['rank'] * 16 and $ii < count($trader_totals)) {
 
                 $t_trader = $r_trader_totals[$ii];
                 $i = array_search($t_trader, $trader_totals);
@@ -98,6 +119,7 @@ rsort($r_trader_totals);
             } else {
                 $traders[$i] = ["", "", "", "", ""];
                 $s = false;
+                $rtt=$rt;
                 $rt = "";
             }
 
@@ -150,6 +172,13 @@ rsort($r_trader_totals);
             </tr>
 
         <?php
-        } while ($s or $b); ?>
+        } while ($s or $b);
+        $_SESSION['rank'] = $_SESSION['rank'] + 1;
+        $_SESSION['ii'] = $ii;
+        $_SESSION['rt'] = $rtt;
+
+        $_SESSION['trader_totals'] = $trader_totals;
+
+        ?>
     </table>
 </div>
